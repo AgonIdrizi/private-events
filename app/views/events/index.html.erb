@@ -1,0 +1,14 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+
+<h2>Events upcoming</h2>
+<% @events_upcoming.each do |event| %>
+  <%= event.description %>
+  <%= link_to 'Show', event_path(event) %><br>
+<% end %>
+
+<h2>Events past</h2>
+<% @events_past.each do |event| %>
+  <%= event.description %>
+  <%= link_to 'Show', event_path(event) %><br>
+<% end %>
