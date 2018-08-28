@@ -8,9 +8,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= render 'layouts/navbar' %>
-
+  
   <body>
+  <div class="container-navbar">
+    <%= render 'layouts/navbar' %>
+  </div>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        
+      <% end %>
+
     <%= yield %>
+  <div class="container-footer">
+    <%= render 'layouts/footer' %>
+  </div>
   </body>
 </html>

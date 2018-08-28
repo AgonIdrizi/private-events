@@ -1,0 +1,38 @@
+<div class='container-upcoming-events'>
+  <% @events_upcoming.each do |event| %>
+ 
+  <div class="card card-accent-dark mb-3" style="max-width: 25rem;">
+    
+    <div class="card-header">
+      <h4><%= event.title %></h4>
+    </div>
+    <div class="card-body">
+      <p class="card-text description"><%= event.description.truncate(50) %></p>
+      <p class="card-text">Location: <%= event.location %></p>
+      <p class="card-text"><%= link_to "Event's page", event_path(event) %></p>
+    </div>
+  </div>
+  <% end %>
+</div> 
+ 
+ 
+
+
+<div class='past-events-header'>
+<h2>Events past</h2>
+</div>
+<div class='container-past-events'>
+  <% @events_past.each do |event| %>
+  <div class="card card-accent-dark mb-3" style="max-width: 25rem;">
+    
+    <div class="card-header">
+      <h4><%= event.title %></h4>
+    </div>
+    <div class="card-body">
+      <p class="card-text description"><%= event.description.truncate(50) %></p>
+      <p class="card-text">Location: <%= event.location %></p>
+      <p class="card-text"><%= link_to "Event's page", event_path(event) %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

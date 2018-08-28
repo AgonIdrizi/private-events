@@ -3,17 +3,17 @@
     <div class="navbar-header">
       <%= link_to 'Private Events', root_path, class: 'navbar-brand' %>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-    </ul>
     <ul class="nav navbar-nav navbar-right">
      <% if logged_in? %>
-        <li><%= link_to "#{current_user.name}", current_user %><span class="glyphicon glyphicon-user"></span></li>
+     	<li><%= link_to "New event", new_event_path %></li>
+        <li><%= link_to "Events", events_path %></li>
+        <li><%= link_to "My events", user_events_path %></li>
+        <li><%= link_to "About", about_url %></li>
+        <li><%= link_to "Log Out", logout_url, method: :delete %></li>
      <% else %>
-        <li><%= link_to "Sign Up", signup_path %><span class="glyphicon glyphicon-user"></span></li>
-        <li><%= link_to "Login", login_path %><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Sign Up", signup_path %></li>
+        <li><%= link_to "Login", login_path %></li>
      <% end %>
     </ul>
   </div>
