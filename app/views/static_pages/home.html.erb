@@ -1,29 +1,18 @@
-<% if logged_in? %>
 <div class='home fluid-container'>
    <div class="row">
 	<div class="col-sm-4 col-sm-offset-4">
 		<div class="focus-container">
 			<div class="blur"></div>
 				<div class="focus-box">
+				<% if logged_in? %>
 					<h1>Welcome</h1>
 					<a class="btn btn-lg btn-success" href="/events">All Events!</a>
-				</div>
-		  </div>
-	  </div>
-  </div>
-</div>
-<% else %>
-<div class='home fluid-container'>
-  <div class="row">
-	<div class="col-sm-4 col-sm-offset-4">
-		<div class="focus-container">
-			<div class="blur"></div>
-				<div class="focus-box">
+				<% else %>
 					<h1>Sign up</h1>
 					<a class="btn btn-lg btn-success" href="/users/new">Sign up now!</a>
+				<% end %>
 				</div>
 		  </div>
 	  </div>
   </div>
 </div>
-<% end %>

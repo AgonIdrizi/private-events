@@ -19,6 +19,10 @@
             <i class="icon fa fa-calendar-o"></i><span><%= "#{format_date(@event.date)} at #{format_time(@event.date)}"%> </span>
           </li>
         </ul>
+        <% if logged_in? && correct_user %>
+        <%= link_to 'Edit event', edit_event_path(@event) %>
+        <% else %>
+        <% end %>
     </div>
     </section>
  
@@ -32,22 +36,24 @@
 				<li><%= attende.name %></li>
 			</ul>
 			
-		  <% end %>
-     
+		  <% end %>     
 </div>
 
+<% if logged_in? %>
 <div class="col-sm-6 col-sm-offset-3">
       <%= form_for [@event,@user] , :url => {:action=>'create', :controller=>'invitations'},:html => {:class =>'InvitationsController', :method => 'POST'} do |f| %>
   
       <%= hidden_field(:event,:id)  %>
     <div class='form-group'>
       <%= f.label :select_friend, class: 'form-control' %>
-      <%= f.collection_select( :id, User.all, :id, :name, {class: 'form-controll'}) %>
+      <%= f.collection_select( :id, User.all, :id, :name, {class: 'form-control'}) %>
     
-     <%= f.submit 'Invite a friend',class: 'form-controll ' %>
+     <%= f.button 'Invite a friend',class: 'form-control ' %>
     </div>
    <% end %>
-  </div> 
+</div> 
+<% else %>
+<% end %>
 
 
 

@@ -59,14 +59,15 @@ class EventsController < ApplicationController
 
   private
 
-  #def paginate
-    #.paginate(page: params[:page], :per_page => 8)
-  #end
   def correct_user
     @event=current_user.created_events.find_by(id: params[:id])
     redirect_to root_url if @event.nil?
-    
   end
+
+  #def paginate
+    #.paginate(page: params[:page], :per_page => 8)
+  #end
+  
 
   def strong_params
     params.require(:event).permit(:description,:location,:title, :date)

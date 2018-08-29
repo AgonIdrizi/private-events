@@ -16,4 +16,8 @@ module SessionsHelper
 	  session.delete(:user_id)
 	  @current_user = nil
 	end
+
+	def correct_user
+		current_user.id == Event.find_by(id: params[:id]).creator.id
+	end
 end
